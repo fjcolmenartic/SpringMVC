@@ -47,7 +47,6 @@
         <!--/.nav-collapse -->
     </div>
 </nav>
-
 <div class="container">
 
     <div class="starter-template">
@@ -56,6 +55,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Avatar</th>
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Teléfono</th>
@@ -64,6 +64,7 @@
             <tbody>
             <tr th:each="empleado : ${listaEmpleados}">
                 <td th:text="${empleado.id}">ID</td>
+                <td><img src="" th:src="@{${empleado.imagen} ?: 'https://i.pravatar.cc/150?u={email}' (email=${empleado.email})}" width="64px"></td>
                 <td th:text="${empleado.nombre}">Pepe Pérez</td>
                 <td th:text="${empleado.email}">pepe.perez@openwebinars.net</td>
                 <td th:text="${empleado.telefono}">954000000</td>
