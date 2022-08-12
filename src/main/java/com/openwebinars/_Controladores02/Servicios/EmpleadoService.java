@@ -60,6 +60,11 @@ public class EmpleadoService {
         return e;
     }
 
+    public int getNextId() {
+        List<Empleado> totals = this.findAll();
+        return totals.size() + 1;
+    }
+
     @PostConstruct
     public void init() {
         repositorio.addAll(
