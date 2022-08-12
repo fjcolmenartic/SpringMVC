@@ -47,7 +47,7 @@
                 <form method="post" enctype="multipart/form-data" action="#"
                       th:action="${empleadoForm.id != 0} ? @{/empleado/edit/submit} : @{/empleado/new/submit}"
                       th:object="${empleadoForm}">
-                    <h1 th:tex="@{empleadoForm.id != 0} ? 'Editar empleado' : 'Nuevo empleado'">Nuevo empleado</h1>
+                    <h1 th:tex="${empleadoForm.id != 0} ? 'Editar empleado' : 'Nuevo empleado'">Nuevo empleado</h1>
                     <div class="form-group"
                     th:classappend="${#fields.hasErrors('id')} ? 'has-error'">
                         <label for="id">ID</label>
@@ -55,7 +55,6 @@
                                class="form-control"
                                id="id"
                                placeholder="1"
-                               readonly="readonly"
                                th:field="*{id}"
                                th:attrappend="readonly=${empleadoForm.id != 0} ? 'readonly' : null">
                         <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="help-block" id="id-error">
