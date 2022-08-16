@@ -27,6 +27,12 @@ public class Empleado {
 
     public Empleado() {}
 
+    public Empleado(String nombre, String email, String telefono) {
+        this.nombre = nombre;
+        this.email = email;
+        this.telefono = telefono;
+    }
+
     public Empleado(long id, String nombre, String email, String telefono) {
         this.id = id;
         this.nombre = nombre;

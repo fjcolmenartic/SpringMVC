@@ -1,5 +1,7 @@
 package com.openwebinars._Controladores02;
 
+import com.openwebinars._Controladores02.Repositorio.EmpleadoRepository;
+import com.openwebinars._Controladores02.modelo.Empleado;
 import com.openwebinars._Controladores02.upload.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +21,17 @@ public class Application {
 		return (args) -> {
 			storageService.deleteAll();
 			storageService.init();
+		};
+	}
+
+	@Bean
+	CommandLineRunner initData(EmpleadoRepository repositorio) {
+		return (args) -> {
+			Empleado empleado = new Empleado("Luís Miguel López", "luismiguellopez@ow.es", "954000000");
+			Empleado empleado2 = new Empleado("José García", "josegarcia@ow.es", "954000000");
+
+			repositorio.save(empleado);
+			repositorio.save(empleado2);
 		};
 	}
 
