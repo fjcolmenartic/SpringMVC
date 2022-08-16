@@ -1,14 +1,22 @@
 package com.openwebinars._Controladores02.modelo;
 
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
+@Entity
 public class Empleado {
 
+    @Id
+    @GeneratedValue
     @Min(value=0, message="{empleado.id.mayorquecero}")
     private long id;
+    @Column(nullable=false)
     @NotEmpty
     private String nombre;
     @Email
